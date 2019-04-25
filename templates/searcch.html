@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block main %}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 grid-margin stretch-card">
+            <form action="{% url 'search' %}" class="text-center d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary shadow" type="submit">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    {% if person %}
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            User
+                          </th>
+                          <th>
+                            Full name
+                          </th>
+                          <th>
+                            Number
+                          </th>
+                          <th>
+                            Postal Code
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+            {% for person in person %}
+
+
+
+                        <tr>
+                          <td class="py-1">{% if person.profile_pic %}
+                            <img src="{{ person.profile_pic.url }}" alt="image">
+                              {% endif %}
+                          </td>
+                          <td>
+                            {{ person.get_fullname }}
+                          </td>
+                          <td>
+                            {{ person.phone }}
+                          </td>
+                          <td>
+                            {{ person.postal_code }}
+                          </td>
+                        </tr>
+             {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endif %}
+    </div>
+
+</div>
+{% endblock %}

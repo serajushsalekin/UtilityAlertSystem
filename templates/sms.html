@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block main %}
+    <style type="text/css">
+      	a{
+      		color: #333;
+      		font-size: 2rem;
+      	}
+      	.card:hover{
+      		/*background-color: #fc92cd;*/
+      		border-bottom: 4px solid #FF6F85;
+      		color: #444;
+      	}
+      	a:hover{
+      		color: #333;
+      	}
+</style>
+<div class="content-wrapper">
+    <div class="row mt-5">
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <p class="card-text text-center"><a href="{% url 'msg' %}" class="nav-link">Gas</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <p class="card-text text-center"><a href="{% url 'msg' %}" class="nav-link">Electricity</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <p class="card-text text-center"><a href="{% url 'msg' %}" class="nav-link">Water</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="media">
+                <div class="media-body">
+                  <p class="card-text text-center"><a href="{% url 'msg' %}" class="nav-link">All</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

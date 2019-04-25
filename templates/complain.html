@@ -1,0 +1,81 @@
+{#{% extends 'accounts/login.html' %}#}
+{#{% load static %}#}
+{#{% block complain %}#}
+{#    <style>#}
+{#    textarea{#}
+{#        height: 10rem;#}
+{#    }#}
+{#</style>#}
+{#    <div class="auto-form-wrapper clearfix">#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        <div class="input-group mb-1">#}
+{#            {{ form.fullname }}#}
+{#        </div>#}
+{#        <div class="input-group mb-1">#}
+{#        {{ form.postal }}#}
+{#        <div class="input-group-append">#}
+{#            <span class="input-group-text" id="basic-addon2">Postal Code</span>#}
+{#          </div>#}
+{#        </div>#}
+{#        <div class="input-group mb-1">#}
+{#            {{ form.phone }}#}
+{#        </div>#}
+{#        <div class="input-group">#}
+{#            {{ form.msg }}#}
+{#        </div>#}
+{#        <input type="submit" value="Submit" class="m-1 btn btn-success float-right">#}
+{#    </form>#}
+{#    </div>#}
+{#{% endblock %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Complain Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="text-danger">Complain Here!</h2>
+  <form class="form-horizontal" method="POST">
+      {% csrf_token %}
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Full Name</label>
+      <div class="col-sm-10">
+          {{ form.fullname }}
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Postal</label>
+      <div class="col-sm-10">
+          {{ form.postal }}
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Phone</label>
+      <div class="col-sm-10">
+          {{ form.phone }}
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Complain</label>
+      <div class="col-sm-10">
+          {{ form.msg }}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
+

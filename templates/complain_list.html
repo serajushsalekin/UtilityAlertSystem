@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block main %}
+ <div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped" id="table">
+          <thead>
+            <tr>
+              <th>
+                Full name
+              </th>
+              <th>
+                Number
+              </th>
+              <th>
+                Postal Code
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          {% include 'snippets/list_snippets.html' %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal-book">
+                    <div class="modal-dialog">
+                      <div class="modal-content"></div>
+                    </div>
+                </div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var ShowForm = function(){
+		var btn = $(this);
+		$.ajax({
+			url: btn.attr("data-url"),
+			type: 'get',
+			dataType:'json',
+			beforeSend: function(){
+				$('#modal-book').modal('show');
+			},
+			success: function(data){
+				$('#modal-book .modal-content').html(data.html_form);
+			}
+		});
+	};
+
+	var SaveForm =  function(){
+		var form = $(this);
+		$.ajax({
+			url: form.attr('data-url'),
+			data: form.serialize(),
+			type: form.attr('method'),
+			dataType: 'json',
+			success: function(data){
+				if(data.form_is_valid){
+					$('#table tbody').html(data.complain_list);
+					$('#modal-book').modal('hide');
+				} else {
+					$('#modal-book .modal-content').html(data.html_form)
+				}
+			}
+		})
+		return false;
+	}
+//delete
+$('#table').on("click",".show-form-delete",ShowForm);
+$('#modal-book').on("submit",".delete-form",SaveForm)
+});
+</script>
+{% endblock %}

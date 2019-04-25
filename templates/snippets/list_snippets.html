@@ -1,0 +1,18 @@
+{% for complain in complainbox_list %}
+            <tr>
+              <td onclick="window.location='{% url 'complain-detail' pk=complain.pk %}'" style="cursor: pointer">
+                {{ complain.fullname }}
+              </td>
+              <td>
+                {{ complain.phone }}
+              </td>
+              <td>
+                {{ complain.postal }}
+              </td>
+                <td>
+                     <button class="btn btn-danger show-form-delete delete-btn" data-url="{% url 'complain-delete' complain.id %}" id="{{ complain.id }}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+          {% endfor %}

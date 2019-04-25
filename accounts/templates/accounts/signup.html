@@ -1,0 +1,24 @@
+{% extends 'master.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Signup
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="content-section jumbotron">
+        <form method="POST" enctype="multipart/form-data">
+            <fieldset class="form-group container-fluid">
+                {% csrf_token %}
+                {{ form|crispy }}
+             </fieldset>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success ml-3" value="Submit">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
