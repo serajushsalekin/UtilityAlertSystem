@@ -1,5 +1,3 @@
 # UtilityAlertSystem
 
-<video width="320" height="240" controls>
-  <source src="/home/salekin/Desktop/utility1_EDIT.mp4" type="video/mp4">
-</video>
+![](https://res.cloudinary.com/dcwmihacc/image/upload/v1556171022/utility_video_f1iw7c.gif)
